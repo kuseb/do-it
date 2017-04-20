@@ -12,6 +12,6 @@ App.list = App.cable.subscriptions.create { channel: "ListChannel", id: window.l
       row.fadeOut(300, ->  $(this).remove())
     else if data.method == 'create'
       ft.rows.add(data.task);
-    else if data.method == 'edit'
+    else if data.method == 'update'
       row.remove()
       ft.rows.add(data.task);
