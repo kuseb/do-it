@@ -1,8 +1,5 @@
 class Users::ConfirmationsController < Devise::ConfirmationsController
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
   # GET /resource/confirmation/new
   # def new
   #   super
