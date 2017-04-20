@@ -35,10 +35,10 @@ class ListsController < ApplicationController
           format.html{}
         end
       end
-    else
-    respond_to do |format|
+
+      respond_to do |format|
       format.html{ redirect_to new_user_registration_url}
-    end
+      end
     end
 
   end
