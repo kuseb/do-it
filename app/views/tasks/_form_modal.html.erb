@@ -5,7 +5,7 @@
         <%= f.label :is_done, :class => "control-label"%>
       </div>
       <div class="col-md-9">
-        <%= f.check_box :is_done, :checked => false,  :class => "form-control icheck-me", 'data-skin' => "square", 'data-color' => "green", :id => "is_done"%>
+        <%= f.check_box :is_done, :checked => false,  :class => "form-control icheck-me", 'data-skin' => "square", 'data-color' => "green", :id => "is_done" %>
       </div>
     </div>
     <div class="row form-group required">
@@ -37,13 +37,15 @@
     <%= f.hidden_field :list_id, :id => "list_id" %>
       </div>
     <div class="modal-footer">
-      <%= f.submit :class => "btn btn-success", :id => "task_modal_submit" %>
+      <button type="submit" class="btn btn-success" id ="task_modal_submit">Save</button>
       <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
     </div>
 
 <% end %>
 
 <script type="application/javascript">
+
+
     function icheck(){
         if($(".icheck-me").length > 0){
             $(".icheck-me").each(function(){
@@ -58,7 +60,14 @@
             });
         }
 
-        $('#is_done').val(false);
+       /* $( "#is_done" ).change(function() {
+            $('.icheck-me').iCheck('uncheck');
+           if( $('#is_done').val() === true){
+               $('.icheck-me').iCheck('check');
+           }
+        });*/
+
+       $('#is_done').val(false);
 
         $(".icheck-me").on('ifChecked', function(event){
             $('#is_done').val(true);
@@ -68,6 +77,7 @@
             $('#is_done').val(false);
         });
     }
+
 
     $(document).ready(function() {
         icheck();

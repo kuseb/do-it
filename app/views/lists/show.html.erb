@@ -19,5 +19,6 @@
 
 
 <script type="application/javascript">
-    initTaskTable(true, <%=@is_edit_site%>, '<%=@list.id%>');
+
+    $(document).ready(initTaskTable(true, <%=@is_edit_site%>, '<%=@list.id%>'));
 </script>
