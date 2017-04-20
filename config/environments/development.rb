@@ -46,7 +46,7 @@ Rails.application.configure do
   config.assets.quiet = true
 
   # Devise mailer conf
-  config.action_mailer.default_url_options = { host: 'todomanagerbtp.herokuapp.com', protocol: 'https' }
+  config.action_mailer.default_url_options = { host: 'https://todomanagerbtp.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings =
       {
