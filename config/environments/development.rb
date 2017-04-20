@@ -47,8 +47,8 @@ Rails.application.configure do
 
   # Devise mailer conf
   config.action_mailer.default_options = {from: 'doitappbst@gmail.com'}
-  config.action_mailer.default_url_options = { host: 'todomanagerbtp.herokuapp.com' }
-  Rails.application.routes.default_url_options[:host] = 'todomanagerbtp.herokuapp.com'
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings =
       {
