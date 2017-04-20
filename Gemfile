@@ -57,9 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 # Bootstrap
-<<<<<<< Updated upstream
-gem 'bootstrap-sass'
-=======
 gem 'bootstrap-sass'
 
 gem "font-awesome-rails"
@@ -76,4 +73,4 @@ gem 'icheck-rails'
 gem 'momentjs-rails'
 
 gem 'clipboard-rails'
->>>>>>> Stashed changes
+
