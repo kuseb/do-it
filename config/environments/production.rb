@@ -99,4 +99,7 @@ Rails.application.configure do
           :password           => 'haslo123',
           :enable_starttls_auto => true
       }
+
+  config.web_socket_server_url = "wss://todomanagerbtp.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['http://todomanagerbtp.herokuapp.com', 'http:///todomanagerbtp.herokuapp.com']
 end
