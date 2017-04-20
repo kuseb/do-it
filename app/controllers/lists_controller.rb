@@ -34,6 +34,8 @@ class ListsController < ApplicationController
         respond_to do |format|
           format.html{}
         end
+
+        return
       end
 
       respond_to do |format|
