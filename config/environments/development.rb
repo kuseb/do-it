@@ -58,7 +58,8 @@ Rails.application.configure do
           :domain             => 'gmail.com',
           :authentication     => :plain,
           :user_name          => 'doitappbst@gmail.com',
-          :password           => 'haslo123'
+          :password           => 'haslo123',
+          :enable_starttls_auto => true
       }
 
   # Raises error for missing translations
