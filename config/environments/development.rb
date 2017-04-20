@@ -55,7 +55,7 @@ Rails.application.configure do
 
           :address            => 'smtp.gmail.com',
           :port               => 587,
-          :domain             => 'heroku.com',
+          :domain             => 'gmail.com',
           :authentication     => :plain,
           :user_name          => 'doitappbst@gmail.com',
           :password           => 'haslo123'
