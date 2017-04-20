@@ -13,4 +13,20 @@
 //= require react
 //= require react_ujs
 //= require turbolinks
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap-sprockets
+//= require progressbar/bootstrap-progressbar.min.js
+//= require icheck/icheck.min.js
+//= require flash.js
+//= require switchery
+
+//= require 'jquery.backstretch'
+//= require 'footable.js'
+//= require 'icheck'
+//= require moment
+//= require clipboard
+//= require cable
+
 //= require_tree .
+

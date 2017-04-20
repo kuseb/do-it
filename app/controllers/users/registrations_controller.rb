@@ -13,9 +13,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
+<<<<<<< Updated upstream
   # def edit
   #   super
   # end
+=======
+   def edit
+     @lists = List.where(:user_id => current_user.id)
+     super
+   end
+>>>>>>> Stashed changes
 
   # PUT /resource
   # def update

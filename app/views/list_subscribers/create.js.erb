@@ -1,0 +1,2 @@
+$('#subscriber_modal').modal('toggle');
+$("#list_subscribers").append($('<div class="row"><div class="col-md-8"><span><%=@user.email%></span> </div> <div class="col-md-4"><%=link_to remove_user_subscription_path(:id => @list_subscriber.id), :class => 'icons',  method: :delete do%> <i class="fa fa-trash" ></i><%end%> </div> </div>').hide().fadeIn(2000));

@@ -1,4 +1,9 @@
 class Users::UnlocksController < Devise::UnlocksController
+<<<<<<< Updated upstream
+=======
+  # layout 'login'
+
+>>>>>>> Stashed changes
   # GET /resource/unlock/new
   # def new
   #   super

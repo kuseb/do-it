@@ -1,0 +1,68 @@
+
+<div class="main_container">
+
+  <div class="col-md-3 left_col">
+    <div class="left_col scroll-view">
+
+      <div class="navbar nav_title" style="border: 0;">
+        <%=link_to home_index_path, :class => "site_title" do%><i class="fa fa-check"></i> <span>Do it!</span><%end%>
+      </div>
+      <div class="clearfix"></div>
+
+
+      <!-- menu profile quick info -->
+      <div class="profile">
+          <span>Welcome,</span>
+        <% if user_signed_in? %>
+          <h2><%=truncate(current_user.email, :length => 20)%></h2>
+        <% else %>
+          <h2>Guest</h2>
+        <%end%>
+      </div>
+      <!-- /menu profile quick info -->
+      <br />
+
+      <!-- sidebar menu -->
+      <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+        <div class="menu_section">
+          <% if user_signed_in? %>
+              <h3>Your lists</h3>
+          <%end%>
+          <ul id="list_container" class="nav side-menu">
+            <% if @lists%>
+                <% @lists.each do |list| %>
+                    <li>
+                      <div class="list-element">
+                        <div class="col-md-2 list-square", style="background-color: <%= list.color %>"> </div>
+                        <div class="col-md-6"><%= link_to list.name, list%></div>
+                        <div class="col-md-2"><%= link_to edit_list_path(list), method: :get, :class => 'icons' do%><i class="fa fa-wrench"></i><%end%></div>
+                        <div class="col-md-2"> <%= link_to list_path(list), method: :delete,  data: { confirm: 'Are you sure?' }, :remote => true, :class => 'icons deleted' do%> <i class="fa fa-trash"></i> <%end%></div>
+                      </div>
+                    </li>
+                <% end %>
+            <%end%>
+          </ul>
+        </div>
+      </div>
+      <!-- /sidebar menu -->
+
+      <% if user_signed_in? %>
+      <!-- /menu footer buttons -->
+          <div class="sidebar-footer hidden-small">
+            <%= link_to edit_user_registration_path,data: {placement: 'top', toggle: 'tooltip'},  title: 'Settings' do %>
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            <%end%>
+            <%= link_to destroy_user_session_path, method: :delete, data: {placement: 'top', toggle: 'tooltip'},  title: 'Logout' do%>
+              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            <%end%>
+          </div>
+      <% end %>
+      <!-- /menu footer buttons -->
+    </div>
+  </div>
+</div>
+
+<% if user_signed_in? %>
+<%= render partial: 'partials/list_modal' %>
+%<% end %>

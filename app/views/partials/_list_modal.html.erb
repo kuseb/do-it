@@ -1,0 +1,48 @@
+<button type="button" class="btn btn-success btn-circle list-button btn-lg" data-toggle="modal" data-target="#list_modal" ><i class="fa fa-plus"></i></button>
+
+<div class="modal fade" id="list_modal" role="dialog" aria-hidden='true'>
+  <div class="modal-dialog" role="document">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add new list</h4>
+      </div>
+
+      <%= form_for List.new, :html => {:class => "form-horizontal form-label-left"}, :remote => true do |f| %>
+          <div class="modal-body">
+            <div class="form-group">
+              <div class="col-md-3">
+                <%= f.label :name%>
+              </div>
+              <div class="col-md-9">
+                <%= f.text_field :name, :id => "list_name", :class => "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-3">
+                <%= f.label :color %>
+              </div>
+              <div class="col-md-9">
+                <%= color_field(:list, :color, :class => "form-control")  %>
+              </div>
+            </div>
+            <%= f.hidden_field :is_public, :value => false %>
+            <%= f.hidden_field :user_id, :value => 1 %>
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-lg-push-8 col-md-2">
+                <%= f.submit "Add list", :class => "btn btn-success" %>
+              </div>
+              <div class="col-lg-push-8 col-md-2">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

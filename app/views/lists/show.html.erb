@@ -1,0 +1,23 @@
+<div class="right_col" role="main">
+  <div class="row">
+    <div class="x_panel">
+      <div class="x_content">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_title">
+            <h2 id="list_name">List: <strong><%=@list.name%></strong></h2>
+            <%= render partial: 'partials/link_modal' %>
+            <div class="clearfix"></div>
+          </div>
+          <%= render partial: 'partials/task_table', locals: {tasks: @tasks} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render partial: 'partials/task_modal' %>
+
+
+<script type="application/javascript">
+    initTaskTable(true, <%=@is_edit_site%>, '<%=@list.id%>');
+</script>

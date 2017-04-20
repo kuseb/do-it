@@ -1,4 +1,10 @@
 class Users::PasswordsController < Devise::PasswordsController
+<<<<<<< Updated upstream
+=======
+
+  # layout 'login'
+
+>>>>>>> Stashed changes
   # GET /resource/password/new
   # def new
   #   super

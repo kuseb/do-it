@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Do it!</title>
+  <%=csrf_meta_tag%>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'true' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'true' %>
+</head>
+
+<body class="login">
+<% flash.each do |key, value| %>
+    <div align="center" id="flash" class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+<div id="wrapper">
+  <div id="login" class="animate form">
+    <section class="login_content">
+      <%= yield %>
+    </section>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $.backstretch("<%= asset_path('background.jpg') %>", {speed: 500});
+    });
+</script>
+
+</body>
+</html>

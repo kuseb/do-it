@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ToDoManagerApp</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title>Do it!</title>
+    <%= csrf_meta_tag%>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="nav-md">
+  <div class="container body">
+    <% flash.each do |key, value| %>
+        <div align="center" id="flash" class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+
+    <%= render "partials/sidenav" %>
+
+    <div id="main">
+      <%= yield %>
+    </div>
+
+    <%= render "partials/footer" %>
+    <%= javascript_include_tag 'footermanifest', 'data-turbolinks-track' => true %>
+
+  </div>
   </body>
 </html>

@@ -1,0 +1,39 @@
+<div class="actions">
+  <button type="button" class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#subscriber_modal" ><i class="fa fa-plus"></i></button>
+
+  <div class="modal fade" id="subscriber_modal" role="dialog" aria-hidden='true'>
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add new subscriber</h4>
+        </div>
+        <%= form_tag add_user_subscription_path, :remote => true, :html => {:class => "form-horizontal form-label-left"} do%>
+            <div class="modal-body">
+              <div class="form-group">
+                <div class="col-md-3">
+                  <%= label_tag(:email, "User email") %>
+                </div>
+                <div class="col-md-9">
+                  <%= email_field_tag :email, nil, :class => "form-control"%>
+                </div>
+              </div>
+              <%= hidden_field_tag :list_id, list.id %>
+            <div class="modal-footer">
+              <div class="row">
+                <div class="col-lg-push-6 col-md-4">
+                  <%= submit_tag "Add subscriber", :class => "btn btn-success" %>
+                </div>
+                <div class="col-lg-push-6 col-md-2">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

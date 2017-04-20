@@ -1,0 +1,14 @@
+<div id="list_subscribers">
+<% list_subscribers.each do |list_subscriber| %>
+    <div class="row" id="subscriber_<%= list_subscriber.id %>">
+      <div class="col-md-8">
+        <span><%=list_subscriber.user_email%></span>
+      </div>
+      <div class="col-md-4">
+        <%=link_to remove_user_subscription_path(:id => list_subscriber.id), :class => 'icons', :remote => true,  method: :delete do%>
+            <i class="fa fa-trash" ></i>
+        <%end%>
+      </div>
+    </div>
+<%end%>
+</div>

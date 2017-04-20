@@ -1,0 +1,28 @@
+<table id="task_table" class="table table-striped table-bordered"  data-sorting="true" data-paging="true" data-filtering="true" width="100%">
+  <thead>
+  <tr>
+    <th data-visible="false" data-name="id">ID</th>
+    <th data-visible="false" data-name="list_id">List ID</th>
+    <th data-name="is_done">Done</th>
+    <th data-name="importance">Importance</th>
+    <th data-name="content">Content</th>
+    <th data-name="deadline">Deadline</th>
+  </tr>
+  </thead>
+  <tbody>
+  <%@tasks.each do |list_task| %>
+      <tr id="task_<%=list_task.id%>">
+        <td><%=list_task.id%></td>
+        <td><%=list_task.list_id%></td>
+        <td><%=list_task.is_done%></td>
+        <td><%=list_task.importance%></td>
+        <td><%=list_task.content%></td>
+        <% if list_task.deadline %>
+            <td><%=list_task.deadline.strftime("%F")%></td>
+        <% else %>
+            <td></td>
+        <%end%>
+      </tr>
+  <%end%>
+  </tbody>
+</table>

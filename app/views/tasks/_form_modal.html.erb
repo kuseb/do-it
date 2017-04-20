@@ -1,0 +1,75 @@
+<div class="modal-body">
+<%= form_for(Task.new, :html => { :id => 'editor'}) do |f| %>
+    <div class="row form-group required">
+      <div class="col-md-3">
+        <%= f.label :is_done, :class => "control-label"%>
+      </div>
+      <div class="col-md-9">
+        <%= f.check_box :is_done, :checked => false,  :class => "form-control icheck-me", 'data-skin' => "square", 'data-color' => "green", :id => "is_done"%>
+      </div>
+    </div>
+    <div class="row form-group required">
+      <div class="col-md-3">
+        <%= f.label :importance, :class => "control-label" %>
+      </div>
+      <div class="col-md-9">
+        <%= f.select :importance, options_for_select([['Low', 1], ['Middle', 2],  ['High', 3]]), {}, {:class => "form-control", :id => "importance"}  %>
+      </div>
+    </div>
+    <div class="row form-group required">
+      <div class="col-md-3">
+        <%= f.label :content, :class => "control-label" %>
+      </div>
+      <div class="col-md-9">
+        <%= f.text_field :content, :class => "form-control", :id => "content"  %>
+      </div>
+    </div>
+     <div class="row form-group">
+       <div class="col-md-3">
+         <%= f.label :deadline, :class => "control-label" %>
+       </div>
+       <div class="col-md-9">
+         <%= f.datetime_local_field :deadline, class: "form-control", id: "deadline" %>
+       </div>
+     </div>
+
+    <%= f.hidden_field :id, :id => "id" %>
+    <%= f.hidden_field :list_id, :id => "list_id" %>
+      </div>
+    <div class="modal-footer">
+      <%= f.submit :class => "btn btn-success", :id => "task_modal_submit" %>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+    </div>
+
+<% end %>
+
+<script type="application/javascript">
+    function icheck(){
+        if($(".icheck-me").length > 0){
+            $(".icheck-me").each(function(){
+                var $el = $(this);
+                var skin = ($el.attr('data-skin') !== undefined) ? "_" + $el.attr('data-skin') : "",
+                    color = ($el.attr('data-color') !== undefined) ? "-" + $el.attr('data-color') : "";
+                var opt = {
+                    checkboxClass: 'icheckbox' + skin + color,
+                    radioClass: 'iradio' + skin + color,
+                }
+                $el.iCheck(opt);
+            });
+        }
+
+        $('#is_done').val(false);
+
+        $(".icheck-me").on('ifChecked', function(event){
+            $('#is_done').val(true);
+        });
+
+        $(".icheck-me").on('ifUnchecked', function(event){
+            $('#is_done').val(false);
+        });
+    }
+
+    $(document).ready(function() {
+        icheck();
+    })
+</script>
