@@ -22,6 +22,7 @@ class ListsController < ApplicationController
         if current_user.id == @list.user_id
           @is_edit_site = true
         end
+
         if @is_edit_site or @list_subscribers.any? {|ls| ls.user_id}
           respond_to do |format|
             format.html{}
@@ -31,16 +32,17 @@ class ListsController < ApplicationController
             format.html{redirect_to home_index_path, notice: "You don't have permissions to show this list!"}
           end
         end
+        return
       elsif @list.is_public?
         respond_to do |format|
           format.html{}
         end
-      end
         return
+      end
     end
 
     respond_to do |format|
-      format.html{ redirect_to new_user_registration_url}
+      format.html{ redirect_to new_user_registration_url, notice: "Log in to show this list"}
     end
   end
 
