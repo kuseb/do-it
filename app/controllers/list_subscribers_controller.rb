@@ -1,5 +1,6 @@
 
 class ListSubscribersController < ApplicationController
+  before_action :authenticate_user!
 
   # POST /listsubscribers
   # POST /listsubscribers.json

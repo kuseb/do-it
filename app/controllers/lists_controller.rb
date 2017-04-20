@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :new, :edit, :create, :update, :destroy ]
 
   # GET /lists
   # GET /lists.json
@@ -34,16 +35,15 @@ class ListsController < ApplicationController
         respond_to do |format|
           format.html{}
         end
-
+      end
         return
-      end
-
-      respond_to do |format|
-      format.html{ redirect_to new_user_registration_url}
-      end
     end
 
+    respond_to do |format|
+      format.html{ redirect_to new_user_registration_url}
+    end
   end
+
 
   # GET /lists/new
   def new
