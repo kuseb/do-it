@@ -16,14 +16,18 @@
 #
 default: &default
   adapter: postgresql
-  encoding: unicode
+  database: ddq3rf4v3noklo
+  adapter: postgresql
+  host: ec2-54-75-226-64.eu-west-1.compute.amazonaws.com
+  password: 96eb5ce869d3173f8ddf39ff2c0baa1101516134851674d5bfbf5ccddfd7da71
+  username: uppxwkilgiluia
+  encoding: utf8
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: ToDoManagerApp__development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +61,6 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: ToDoManagerApp__test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +83,4 @@ test:
 #
 production:
   <<: *default
-  database: ToDoManagerApp__production
-  username: ToDoManagerApp_
-  password: <%= ENV['TODOMANAGERAPP__DATABASE_PASSWORD'] %>
+
