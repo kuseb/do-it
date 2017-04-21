@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  resources :tasks
-  resources :lists
+  resources :tasks, :except => [:edit, :show, :all, :new]
+  resources :lists, :except => [:all, :new] do
+    member do
+      get 'show_with_edit' => 'lists#show_with_edit'
+    end
+  end
+
   get 'home/index'
 
   delete '/listsubscribers/:id', to: 'list_subscribers#delete', :as => 'remove_user_subscription'

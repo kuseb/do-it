@@ -35,7 +35,7 @@
                     <li>
                       <div class="list-element">
                         <div class="col-md-2 list-square", style="background-color: <%= list.color %>"> </div>
-                        <div class="col-md-6"><%= link_to list.name, list, data: { no_turbolink: true }%></div>
+                        <div class="col-md-6"><%= link_to list.name, show_with_edit_list_path(list), data: { no_turbolink: true }%></div>
                         <div class="col-md-2"><%= link_to edit_list_path(list), method: :get, :class => 'icons' do%><i class="fa fa-wrench"></i><%end%></div>
                         <div class="col-md-2"> <%= link_to list_path(list), method: :delete,  data: { confirm: 'Are you sure?' }, :remote => true, :class => 'icons deleted' do%> <i class="fa fa-trash"></i> <%end%></div>
                       </div>
